@@ -88,8 +88,11 @@ inventory.addProduct(prod1);
 inventory.listProducts();
 
 //Task 4 - Implemented Order Management
-inventory.placeOrder(601, prod1, 2); 
+inventory.placeOrder(601, prod1, 2); //Testing
 inventory.listOrders();
 
 console.log(prod1.getDetails());
 
+//Task 5 - Implemented Product Restocking
+inventory.restockProduct(101, 5); //Testing
+console.log(prod1.getDetails()); 
