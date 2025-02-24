@@ -46,3 +46,44 @@ const order1 = new Order(501, prod1, 2); //Creating an order instance
 console.log(order1.getOrderDetails()); 
 console.log(prod1.getDetails()); 
 
+//Task 3 - Created Inventory Class
+
+class Inventory { 
+    constructor() { //Initializes inventory properties
+        this.products = []; //Array to store products
+        this.orders = []; //Task 4 - Array to store orders
+    };
+
+    addProduct(product) { //Adds a new product to the inventory
+        this.products.push(product); //Using push method to store product
+    };
+
+    listProducts() { //Displays all product details
+        return this.products.forEach(product => console.log(product.getDetails()));
+    };
+
+    placeOrder(orderId, product, quantity) { //Task 4 - Method to place an order
+        if (product.stock >= quantity) {
+            let order  = new Order(orderId, product, quantity); //Creates new order instance
+            this.orders.push(order); //Adds order to order list if stock is sufficient
+        } else {
+            return `Insufficient stock! Stock of ${product.name} is currently ${product.stock}`; //Displays stock shortage message
+        };
+    };
+
+    listOrders() { //Task 4 - Method to list all orders
+        this.orders.forEach(order => console.log(order.getOrderDetails())); //Logs all orders placed
+    };
+
+    restockProduct(productId, quantity) { //Task 5 - Method to restock a product
+        let product = this.products.find(product => product.id === productId); //Finds product using productId
+        if (product) {
+            product.stock += quantity; //Increases product stock level
+        }; 
+    };
+};
+
+const inventory = new Inventory(); //Test case for Task 3
+inventory.addProduct(prod1);
+inventory.listProducts();
+
