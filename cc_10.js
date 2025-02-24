@@ -87,3 +87,9 @@ const inventory = new Inventory(); //Test case for Task 3
 inventory.addProduct(prod1);
 inventory.listProducts();
 
+//Task 4 - Implemented Order Management
+inventory.placeOrder(601, prod1, 2); 
+inventory.listOrders();
+
+console.log(prod1.getDetails());
+
