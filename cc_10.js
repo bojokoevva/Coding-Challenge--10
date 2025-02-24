@@ -26,3 +26,23 @@ console.log(prod1.getDetails());
 
 prod1.updateStock(3); // Reduce stock by 3
 console.log(prod1.getDetails()); 
+
+//Task 2 - Implemented Order Class
+
+class Order { 
+    constructor(orderId, product, quantity) { //Initializes order attributes
+        this.orderId = orderId;
+        this.product = product;
+        this.quantity = quantity;
+        this.product.updateStock(this.quantity); //Reduces stock when an order is placed
+    };
+
+    getOrderDetails() { //Method to retrieve order details
+        return `Order ID: ${this.orderId}, Product: ${this.product.name}, Quantity: ${this.quantity}, Total Price: $${this.product.price * this.quantity}`; //Returns order summary
+    };
+};
+
+const order1 = new Order(501, prod1, 2); //Creating an order instance
+console.log(order1.getOrderDetails()); 
+console.log(prod1.getDetails()); 
+
